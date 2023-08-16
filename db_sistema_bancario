@@ -1,18 +1,25 @@
-CREATE DATABASE bd_sistema_bancario;
-\l 							/*lista BDs existentes*/
-\c bd_sistema_bancario; 	/* '\c' seleciona um banco específico*/
-\dt 						/*lista todas as tabelas dum BD*/
-
-CREATE TABLE tabela01 (codigo INTEGER);
-CREATE TABLE tabela02 (codigo INTEGER, Nome VARCHAR, Idade INTEGER, Curso VARCHAR, Cidade TEXT, Peso FLOAT, DataCadastro DATE);
-CREATE TABLE tabela03 (Id INTEGER, Nome VARCHAR, Idade INTEGER);
-CREATE TABLE tabela04 (ID INTEGER, Contato REAL);
-CREATE TABLE tabela05 (Referencia INTEGER, PlacaCarro TEXT);
-
-CREATE TABLE Cliente (NomeCliente VARCHAR[50], Cidade_Cliente VARCHAR [30], Endereco VARCHAR[30]);
-CREATE TABLE Conta (Numero_Conta REAL[12], Nome_Agencia TEXT[11], Saldo FLOAT);
-CREATE TABLE Emprestimo (Numero_Emprestimo INTEGER, NomeAgencia VARCHAR[12], Valor FLOAT);
-CREATE TABLE Agencia (Nome_Agencia TEXT, Cidade_Agencia VARCHAR[50], Depositos INTEGER);
-
-DROP TABLE tabela01, tabela02, tabela03, tabela04, tabela05;
-
+drop database IF EXISTS bd_sistema_bancario;
+create database bd_sistema_bancario;
+\c bd_sistema_bancario;
+create table tabela1 (cod integer);
+create table tabela2 (cod integer);
+create table tabela3 (cod integer);
+create table tabela4 (cod integer);
+create table tabela5 (cod integer);
+create table cliente (nome_cliente text, cidade_cliente text, endereco_cliente text);
+create table emprestimo (numero_emprestimo integer, nome_agencia text, valor real);
+create table conta (numero_conta integer, nome_agencia text, saldo real);
+create table agencia (nome_agencia text, cidade_agencia text, dispositivos real);
+drop table tabela1;
+drop table tabela2;
+drop table tabela3;
+drop table tabela4;
+drop table tabela5;
+alter table cliente rename to tbl_cliente;
+alter table emprestimo rename to tbl_emprestimo;
+alter table conta rename to tbl_conta;
+alter table agencia rename to tbl_agencia;
+alter table tbl_cliente add column idade integer;
+alter table tbl_cliente add column cpf integer;
+alter table tbl_agencia rename column cidade_agencia to endereco_agencia;
+create schema nicolas;
