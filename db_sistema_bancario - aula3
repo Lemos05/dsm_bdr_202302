@@ -1,1 +1,55 @@
-# dsm_bdr_202302
+-- Criação das 5 tabelas aleatórias
+
+-- Tabela 1
+CREATE TABLE tabela1 (
+    id serial PRIMARY KEY,
+    nome VARCHAR(255),
+    idade INT,
+    email VARCHAR(255)
+);
+
+-- Tabela 2
+CREATE TABLE tabela2 (
+    id serial PRIMARY KEY,
+    cidade VARCHAR(255),
+    estado VARCHAR(255),
+    populacao INT
+);
+
+-- Tabela 3
+CREATE TABLE tabela3 (
+    id serial PRIMARY KEY,
+    produto VARCHAR(255),
+    preco NUMERIC(10, 2)
+);
+
+-- Tabela 4
+CREATE TABLE tabela4 (
+    id serial PRIMARY KEY,
+    departamento VARCHAR(255),
+    funcionarios INT
+);
+
+-- Tabela 5
+CREATE TABLE tabela5 (
+    id serial PRIMARY KEY,
+    categoria VARCHAR(255),
+    descricao TEXT
+);
+
+-- Comandos para deletar as 5 tabelas
+
+-- Deletar Tabela 1
+DROP TABLE IF EXISTS tabela1;
+
+-- Deletar Tabela 2
+DROP TABLE IF EXISTS tabela2;
+
+-- Deletar Tabela 3
+DROP TABLE IF EXISTS tabela3;
+
+-- Deletar Tabela 4
+DROP TABLE IF EXISTS tabela4;
+
+-- Deletar Tabela 5
+DROP TABLE IF EXISTS tabela5;

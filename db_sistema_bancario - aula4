@@ -1,0 +1,29 @@
+-- Tabela tbl_cliente
+CREATE TABLE tbl_cliente (
+    codigo_cliente serial PRIMARY KEY,
+    nome VARCHAR(255) NOT NULL,
+    cidade VARCHAR(255),
+    endereco VARCHAR(255)
+);
+
+-- Tabela tbl_titulo
+CREATE TABLE tbl_titulo (
+    codigo_titulo serial PRIMARY KEY,
+    titulo VARCHAR(255) NOT NULL,
+    descricao TEXT,
+    categoria VARCHAR(255) CHECK (categoria IN ('drama', 'comedia'))
+);
+
+-- Tabela tbl_emprestimo
+CREATE TABLE tbl_emprestimo (
+    numero_emprestimo serial PRIMARY KEY,
+    codigo_cliente INT REFERENCES tbl_cliente(codigo_cliente),
+    codigo_livro INT REFERENCES tbl_livros(cod_livro)
+);
+
+-- Tabela tbl_livros
+CREATE TABLE tbl_livros (
+    cod_livro serial PRIMARY KEY,
+    codigo_titulo INT REFERENCES tbl_titulo(codigo_titulo),
+    status VARCHAR(255) CHECK (status IN ('alugado', 'disponivel'))
+);
